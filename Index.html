@@ -29,7 +29,7 @@
         .profile-container {
             width: 100%;
             max-width: 412px; 
-            height: 920px;
+            height: 930px;
             max-height: 98vh;
             background: linear-gradient(165deg, #44323c 0%, #221a25 35%, #120e16 100%);
             border-radius: 44px;
@@ -134,13 +134,6 @@
             box-shadow: 0 8px 24px rgba(92, 184, 92, 0.3);
         }
 
-        .fab-chat .question-mark {
-            font-size: 0.62rem;
-            position: absolute;
-            font-weight: bold;
-            top: 22px;
-        }
-
         /* Identity Info */
         .user-info {
             margin-bottom: 20px;
@@ -154,32 +147,39 @@
             letter-spacing: -0.5px;
         }
 
-        /* Save Contact Button Layout */
-        .save-contact-container {
+        /* Primary Action Buttons Split Container */
+        .actions-row-container {
+            display: flex;
+            gap: 12px;
             padding-left: 8px;
             margin-bottom: 25px;
         }
 
-        .save-contact-btn {
+        .save-contact-btn, .parking-notify-btn {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 12px;
-            width: 100%;
+            gap: 10px;
+            flex: 1;
             height: 54px;
+            border-radius: 20px;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.2px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: none;
+        }
+
+        /* Save Contact Styles */
+        .save-contact-btn {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border-radius: 20px;
-            color: #ffffff;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            letter-spacing: 0.3px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .save-contact-btn:hover {
@@ -189,7 +189,22 @@
             box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
         }
 
-        /* Social & Contact Shortcuts Grid */
+        /* Parking Notify Styles (Urgent Crimson Theme) */
+        .parking-notify-btn {
+            background: rgba(234, 67, 53, 0.15);
+            border: 1px solid rgba(234, 67, 53, 0.4);
+            color: #ff6b6b;
+        }
+
+        .parking-notify-btn:hover {
+            background: #ea4335;
+            color: #ffffff;
+            border-color: #ea4335;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(234, 67, 53, 0.4);
+        }
+
+        /* Social Shortcuts Grid */
         .social-contact-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -277,9 +292,7 @@
 
         /* Mobile View Overrides */
         @media (max-width: 480px) {
-            body {
-                padding: 0;
-            }
+            body { padding: 0; }
             .profile-container {
                 max-width: 100%;
                 height: 100vh;
@@ -303,13 +316,11 @@
         <!-- Avatar & Experience Layout -->
         <div class="avatar-wrapper">
             <div class="avatar-circle">
-                <!-- Using a high-quality online placeholder photo for the webpage profile view -->
-                <img id="profile-display-img" src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQ6Nc9GvwGwoYIQRqvC6DDWeYPeTW72_tJGll_M-N4paK20jkfjcFnSUbHtceDtSncMU3uK9cgQdpUwjRU" alt="Muhammad Asif">
+                <img id="profile-display-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Muhammad Asif">
                 <div class="experience-badge">12 years experience</div>
             </div>
             <button class="fab-chat" aria-label="Chat help">
                 <i class="fa-regular fa-comment-dots"></i>
-                <span class="question-mark">?</span>
             </button>
         </div>
 
@@ -318,49 +329,33 @@
             <h1 class="user-name">Muhammad<br>Asif</h1>
         </main>
 
-        <!-- All-in-One Save Contact Trigger -->
-        <section class="save-contact-container">
+        <!-- Action Row: Save Contact & One-Tap WhatsApp Alert Split -->
+        <section class="actions-row-container">
             <button id="vcard-btn" class="save-contact-btn">
                 <i class="fa-solid fa-user-plus"></i> Save Contact
             </button>
+            
+            <!-- Replace '97412345678' with your real mobile number to activate -->
+            <a href="https://api.whatsapp.com/send?phone=97431697639&text=%E2%9A%A0%EF%B8%8F%20*PARKING%20ALERT*%20%E2%9A%A0%EF%B8%8F%0A%0AHi%20there!%20Your%20vehicle%20is%20currently%20blocking%20my%20car.%20Could%20you%20please%20move%20it%20whenever%20you%20get a chance?%20Thank%20you!" target="_blank" class="parking-notify-btn">
+                <i class="fa-solid fa-car-burst"></i> Blocked Car
+            </a>
         </section>
 
         <!-- Dynamic Action Grid: Socials & Contacts -->
         <section class="social-contact-grid">
-            <a href="https://wa.me/97412345678" target="_blank" class="social-item whatsapp" title="WhatsApp">
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            <a href="https://maps.google.com" target="_blank" class="social-item google-maps" title="Office Location">
-                <i class="fa-solid fa-location-dot"></i>
-            </a>
-            <a href="https://instagram.com" target="_blank" class="social-item instagram" title="Instagram">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://facebook.com" target="_blank" class="social-item facebook" title="Facebook">
-                <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a href="mailto:info@yourdomain.com" class="social-item email" title="Email Me">
-                <i class="fa-regular fa-envelope"></i>
-            </a>
-            <a href="https://yourdomain.com" target="_blank" class="social-item website" title="Website">
-                <i class="fa-solid fa-globe"></i>
-            </a>
+            <a href="https://wa.me/97412345678" target="_blank" class="social-item whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://maps.google.com" target="_blank" class="social-item google-maps"><i class="fa-solid fa-location-dot"></i></a>
+            <a href="https://instagram.com" target="_blank" class="social-item instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" class="social-item facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="mailto:info@yourdomain.com" class="social-item email"><i class="fa-regular fa-envelope"></i></a>
+            <a href="https://yourdomain.com" target="_blank" class="social-item website"><i class="fa-solid fa-globe"></i></a>
         </section>
 
         <!-- Stats Section -->
         <section class="stats-counter-container">
-            <div class="stat-pill">
-                <i class="fa-solid fa-user-minus"></i>
-                <span>275K</span>
-            </div>
-            <div class="stat-pill">
-                <i class="fa-regular fa-copy"></i>
-                <span>2,963</span>
-            </div>
-            <div class="stat-pill">
-                <i class="fa-solid fa-user-plus"></i>
-                <span>581</span>
-            </div>
+            <div class="stat-pill"><i class="fa-solid fa-user-minus"></i> <span>275K</span></div>
+            <div class="stat-pill"><i class="fa-regular fa-copy"></i> <span>2,963</span></div>
+            <div class="stat-pill"><i class="fa-solid fa-user-plus"></i> <span>581</span></div>
         </section>
 
         <!-- Dynamic Navigation Tabs -->
@@ -372,64 +367,37 @@
         </nav>
     </div>
 
-    <!-- Script to dynamically download an online photo and pack it inside the vCard download -->
+    <!-- Script to handle dynamic photo VCARD downloads -->
     <script>
         document.getElementById('vcard-btn').addEventListener('click', async () => {
-            // URL of the free online sample picture we want saved into the phone's address book
-            const imageUrl = 'https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQ6Nc9GvwGwoYIQRqvC6DDWeYPeTW72_tJGll_M-N4paK20jkfjcFnSUbHtceDtSncMU3uK9cgQdpUwjRU';
+            const imageUrl = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150';
             let base64PhotoText = '';
-
             try {
-                // Fetch the image and convert it into standard Base64 string data completely in the background
                 const response = await fetch(imageUrl);
                 const blob = await response.blob();
-                
                 base64PhotoText = await new Promise((resolve) => {
                     const reader = new FileReader();
-                    reader.onloadend = () => {
-                        // Strip out standard meta layout header tags to keep clean data string
-                        const base64String = reader.result.split(',')[1];
-                        resolve(base64String);
-                    };
+                    reader.onloadend = () => resolve(reader.result.split(',')[1]);
                     reader.readAsDataURL(blob);
                 });
-            } catch (error) {
-                console.log('Using fallback text profile card generation.');
-            }
+            } catch (e) { console.log('Fallback to text card format.'); }
 
-            // Build the complete digital business card file array structure
             const vcardLines = [
-                "BEGIN:VCARD",
-                "VERSION:3.0",
-                "N:Asif;Muhammad;;;",
-                "FN:Muhammad Asif -Mohamed and Partners",
-                "ORG:Mohamed and Partners",
-                "TITLE:Managing Partner",
-                "TEL;TYPE=CELL;TYPE=PREF:+97412345678",
-                "EMAIL;TYPE=PREF,INTERNET:info@yourdomain.com",
-                "URL:https://profileqatar.github.io/Profile1/",
+                "BEGIN:VCARD", "VERSION:3.0", "N:Asif;Muhammad;;;", "FN:Muhammad Asif",
+                "ORG:Mohamed and Partners", "TITLE:Managing Partner", "TEL;TYPE=CELL;TYPE=PREF:+97412345678",
+                "EMAIL;TYPE=PREF,INTERNET:info@yourdomain.com", "URL:https://profileqatar.github.io/Profile1/",
                 "NOTE:Accounting and Auditing Services in Qatar"
             ];
-
-            // If the image conversion completed successfully, append the photo code line straight to the layout
-            if (base64PhotoText) {
-                vcardLines.push("PHOTO;TYPE=JPEG;ENCODING=b:" + base64PhotoText);
-            }
-
+            if (base64PhotoText) vcardLines.push("PHOTO;TYPE=JPEG;ENCODING=b:" + base64PhotoText);
             vcardLines.push("END:VCARD");
 
-            const vcardContent = vcardLines.join("\r\n");
-            
-            // Generate a direct system download trigger out of the combined data text stream
-            const blobFile = new Blob([vcardContent], { type: 'text/vcard;charset=utf-8;' });
+            const blobFile = new Blob([vcardLines.join("\r\n")], { type: 'text/vcard;charset=utf-8;' });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blobFile);
             link.download = 'Muhammad_Asif.vcf';
-            
-            document.body.appendChild(link);
             link.click();
-            document.body.removeChild(link);
         });
     </script>
 </body>
 </html>
+
