@@ -29,7 +29,7 @@
         .profile-container {
             width: 100%;
             max-width: 412px; 
-            height: 890px; /* Marginally expanded height to fit new action row perfectly */
+            height: 920px;
             max-height: 98vh;
             background: linear-gradient(165deg, #44323c 0%, #221a25 35%, #120e16 100%);
             border-radius: 44px;
@@ -46,7 +46,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .header-title {
@@ -79,13 +79,13 @@
             position: relative;
             align-self: flex-start;
             margin-left: 8px;
-            margin-bottom: 50px;
+            margin-bottom: 45px;
         }
 
         .avatar-circle {
-            width: 190px;
-            height: 190px;
-            background-color: #f6c845; /* Replicating background yellow in 1000109261.jpg */
+            width: 180px;
+            height: 180px;
+            background-color: #f6c845;
             border-radius: 50%;
             position: relative;
         }
@@ -118,10 +118,10 @@
         /* Green Floating Button */
         .fab-chat {
             position: absolute;
-            bottom: 12px;
+            bottom: 10px;
             right: -8px;
-            width: 58px;
-            height: 58px;
+            width: 56px;
+            height: 56px;
             background-color: #5cb85c;
             border: none;
             border-radius: 50%;
@@ -138,29 +138,64 @@
             font-size: 0.62rem;
             position: absolute;
             font-weight: bold;
-            top: 23px;
+            top: 22px;
         }
 
         /* Identity Info */
         .user-info {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             padding-left: 8px;
         }
 
         .user-name {
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             font-weight: 500;
-            line-height: 1.12;
+            line-height: 1.15;
             letter-spacing: -0.5px;
         }
 
-        /* NEW: Social & Contact Shortcuts Grid */
+        /* Save Contact Button Layout */
+        .save-contact-container {
+            padding-left: 8px;
+            margin-bottom: 25px;
+        }
+
+        .save-contact-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            height: 54px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .save-contact-btn:hover {
+            background: #ffffff;
+            color: #120e16;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Social & Contact Shortcuts Grid */
         .social-contact-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             gap: 10px;
             padding-left: 8px;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .social-item {
@@ -182,7 +217,6 @@
             background: rgba(255, 255, 255, 0.12);
         }
 
-        /* Vibrant brand specific colors on hover to preserve the clean dark look default */
         .social-item.whatsapp:hover { background-color: #25D366; border-color: #25D366; }
         .social-item.google-maps:hover { background-color: #EA4335; border-color: #EA4335; }
         .social-item.instagram:hover { background-color: #E1306C; border-color: #E1306C; }
@@ -190,12 +224,11 @@
         .social-item.email:hover { background-color: #F4B400; border-color: #F4B400; }
         .social-item.website:hover { background-color: #0077B5; border-color: #0077B5; }
 
-
         /* Metric/Stat Pills */
         .stats-counter-container {
             display: flex;
             gap: 12px;
-            margin-bottom: auto; /* Dynamically forces the bottom tabs to the baseline */
+            margin-bottom: auto;
             padding-left: 8px;
         }
 
@@ -270,7 +303,8 @@
         <!-- Avatar & Experience Layout -->
         <div class="avatar-wrapper">
             <div class="avatar-circle">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400" alt="Margaretha Collins">
+                <!-- Using a high-quality online placeholder photo for the webpage profile view -->
+                <img id="profile-display-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Muhammad Asif">
                 <div class="experience-badge">12 years experience</div>
             </div>
             <button class="fab-chat" aria-label="Chat help">
@@ -281,32 +315,33 @@
 
         <!-- User Information -->
         <main class="user-info">
-            <h1 class="user-name">Margaretha<br>Collins</h1>
+            <h1 class="user-name">Muhammad<br>Asif</h1>
         </main>
+
+        <!-- All-in-One Save Contact Trigger -->
+        <section class="save-contact-container">
+            <button id="vcard-btn" class="save-contact-btn">
+                <i class="fa-solid fa-user-plus"></i> Save Contact
+            </button>
+        </section>
 
         <!-- Dynamic Action Grid: Socials & Contacts -->
         <section class="social-contact-grid">
-            <!-- WhatsApp (Replace phone number) -->
-            <a href="https://wa.me/1234567890" target="_blank" class="social-item whatsapp" title="WhatsApp">
+            <a href="https://wa.me/97412345678" target="_blank" class="social-item whatsapp" title="WhatsApp">
                 <i class="fa-brands fa-whatsapp"></i>
             </a>
-            <!-- Google Maps Office Location (Replace with your link) -->
             <a href="https://maps.google.com" target="_blank" class="social-item google-maps" title="Office Location">
                 <i class="fa-solid fa-location-dot"></i>
             </a>
-            <!-- Instagram -->
             <a href="https://instagram.com" target="_blank" class="social-item instagram" title="Instagram">
                 <i class="fa-brands fa-instagram"></i>
             </a>
-            <!-- Facebook -->
             <a href="https://facebook.com" target="_blank" class="social-item facebook" title="Facebook">
                 <i class="fa-brands fa-facebook-f"></i>
             </a>
-            <!-- Email (Replace with your email) -->
             <a href="mailto:info@yourdomain.com" class="social-item email" title="Email Me">
                 <i class="fa-regular fa-envelope"></i>
             </a>
-            <!-- Website Address -->
             <a href="https://yourdomain.com" target="_blank" class="social-item website" title="Website">
                 <i class="fa-solid fa-globe"></i>
             </a>
@@ -337,5 +372,64 @@
         </nav>
     </div>
 
+    <!-- Script to dynamically download an online photo and pack it inside the vCard download -->
+    <script>
+        document.getElementById('vcard-btn').addEventListener('click', async () => {
+            // URL of the free online sample picture we want saved into the phone's address book
+            const imageUrl = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150';
+            let base64PhotoText = '';
+
+            try {
+                // Fetch the image and convert it into standard Base64 string data completely in the background
+                const response = await fetch(imageUrl);
+                const blob = await response.blob();
+                
+                base64PhotoText = await new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                        // Strip out standard meta layout header tags to keep clean data string
+                        const base64String = reader.result.split(',')[1];
+                        resolve(base64String);
+                    };
+                    reader.readAsDataURL(blob);
+                });
+            } catch (error) {
+                console.log('Using fallback text profile card generation.');
+            }
+
+            // Build the complete digital business card file array structure
+            const vcardLines = [
+                "BEGIN:VCARD",
+                "VERSION:3.0",
+                "N:Asif;Muhammad;;;",
+                "FN:Muhammad Asif",
+                "ORG:Mohamed and Partners",
+                "TITLE:Managing Partner",
+                "TEL;TYPE=CELL;TYPE=PREF:+97412345678",
+                "EMAIL;TYPE=PREF,INTERNET:info@yourdomain.com",
+                "URL:https://profileqatar.github.io/Profile1/",
+                "NOTE:Accounting and Auditing Services in Qatar"
+            ];
+
+            // If the image conversion completed successfully, append the photo code line straight to the layout
+            if (base64PhotoText) {
+                vcardLines.push("PHOTO;TYPE=JPEG;ENCODING=b:" + base64PhotoText);
+            }
+
+            vcardLines.push("END:VCARD");
+
+            const vcardContent = vcardLines.join("\r\n");
+            
+            // Generate a direct system download trigger out of the combined data text stream
+            const blobFile = new Blob([vcardContent], { type: 'text/vcard;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blobFile);
+            link.download = 'Muhammad_Asif.vcf';
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
 </body>
 </html>
